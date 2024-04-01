@@ -21,6 +21,7 @@
 				<li><a href="userlist.php">Liste des utilisateurs</a></li>
 				<li><a href="userfrm.php">Ajouter un utilisateur</a></li>
 				<li><a href="userfrmlist.php">Ajouter avec listes</a></li>
+				<li><a href="userlistgroupby.php">Regroupement</a></li>
 				<li><?=SITE_NAME?></li>
 			</ul>
 		</nav>

@@ -57,3 +57,4 @@ select e.id, e.nom, p.EleveId, p.DiplomeId, d.Id, d.LibelleCourt, d.Libelle, d.N
 		left join posseder as p on e.id = p.EleveId
 		left join Diplome as d on p.DiplomeId = d.Id
 		left join Classe as c on e.ClasseId = c.Id
+	order by e.id

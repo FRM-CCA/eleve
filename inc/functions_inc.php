@@ -40,7 +40,7 @@ function getCRUDMethod(CRUD_Method $defaultMethod = CRUD_Method::Read)
    $crud_method = CRUD_Method::Delete;
    break;
   default: //'read (or create 4 form)':
-   $crud_method = defaultMethod;
+   $crud_method = $defaultMethod;
    break;
  }
  return $crud_method;
