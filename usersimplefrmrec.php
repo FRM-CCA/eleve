@@ -30,10 +30,10 @@ if (!empty($_REQUEST["method"])) {
 }
 switch ($method) {
     case 'update':
-        $submit = $method = $method;
+        $submit = $method = "update";
         break;
     case 'delete':
-        $submit = $method = $method;
+        $submit = $method = "delete";
         break;
     default: //'create':
         $submit = $method = "create";
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $id = -1;
             $method = "create";
-            redirect("userfrm.php?method=create");
+            redirect("usersimplefrmrec.php?method=create");
         }
         echo "POST id: $id<br>";
     }
