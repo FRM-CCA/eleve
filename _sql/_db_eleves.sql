@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 01 avr. 2024 à 17:42
+-- Généré le : lun. 01 avr. 2024 à 18:59
 -- Version du serveur : 10.6.5-MariaDB
 -- Version de PHP : 8.3.3
 
@@ -53,25 +53,26 @@ INSERT INTO `classe` (`Id`, `Libelle`) VALUES
 CREATE TABLE `diplome` (
   `Id` int(11) NOT NULL,
   `LibelleCourt` varchar(10) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `Libelle` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL
+  `Libelle` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `Niveau` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Déchargement des données de la table `diplome`
 --
 
-INSERT INTO `diplome` (`Id`, `LibelleCourt`, `Libelle`) VALUES
-(1, 'BAC GEN', 'BAC Général'),
-(2, 'BAC STI', 'BAC sciences et technologies industrielles (STI)'),
-(3, 'BAC STMG', 'BAC sciences et technologies du management et de la gestion (STMG)'),
-(4, 'BAC STL', 'BAC sciences et technologies de laboratoire (STL)'),
-(5, 'BAC ST2S', 'BAC sciences et technologies de la santé et du social (ST2S)'),
-(6, 'BAC ES', 'BAC économique et social (ES)'),
-(7, 'BAC S', 'BAC scientifique (S)'),
-(8, 'BAC PRO', 'BAC professionnel'),
-(9, 'BTS', 'Brevet de technicien supérieur (BTS)'),
-(10, 'BUT', 'Bachelors universitaires de technologie (BUT)'),
-(11, 'LICENCE', 'Licence');
+INSERT INTO `diplome` (`Id`, `LibelleCourt`, `Libelle`, `Niveau`) VALUES
+(1, 'BAC GEN', 'BAC Général', 3),
+(2, 'BAC STI', 'BAC sciences et technologies industrielles (STI)', 3),
+(3, 'BAC STMG', 'BAC sciences et technologies du management et de la gestion (STMG)', 3),
+(4, 'BAC STL', 'BAC sciences et technologies de laboratoire (STL)', 3),
+(5, 'BAC ST2S', 'BAC sciences et technologies de la santé et du social (ST2S)', 3),
+(6, 'BAC ES', 'BAC économique et social (ES)', 3),
+(7, 'BAC S', 'BAC scientifique (S)', 3),
+(8, 'BAC PRO', 'BAC professionnel', 3),
+(9, 'BTS', 'Brevet de technicien supérieur (BTS)', 2),
+(10, 'BUT', 'Bachelors universitaires de technologie (BUT)', 2),
+(11, 'LICENCE', 'Licence', 2);
 
 -- --------------------------------------------------------
 
