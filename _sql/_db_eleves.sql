@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 25 mars 2024 à 21:46
+-- Généré le : lun. 01 avr. 2024 à 17:42
 -- Version du serveur : 10.6.5-MariaDB
 -- Version de PHP : 8.3.3
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `db_eleves_tmp`
+-- Base de données : `db_eleves`
 --
 CREATE DATABASE IF NOT EXISTS `db_eleves` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 USE `db_eleves`;
@@ -51,28 +51,27 @@ INSERT INTO `classe` (`Id`, `Libelle`) VALUES
 --
 
 CREATE TABLE `diplome` (
-  `Id` int(11),
-  `LibelleCourt` varchar(10) COLLATE utf8mb4_unicode_520_ci NOT NULL UNIQUE,
-  `Libelle` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL UNIQUE,
-  `Niveau` int(11)
+  `Id` int(11) NOT NULL,
+  `LibelleCourt` varchar(10) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `Libelle` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Déchargement des données de la table `diplome`
 --
 
-insert into diplome (Id,LibelleCourt, Libelle, Niveau) 
-	values (1,'BAC GEN', 'BAC Général', 3), 
-				(2,'BAC STI', 'BAC sciences et technologies industrielles (STI)',3), 
-				(3,'BAC STMG', 'BAC sciences et technologies du management et de la gestion (STMG)',3), 
-				(4,'BAC STL', 'BAC sciences et technologies de laboratoire (STL)',3), 
-				(5,'BAC ST2S', 'BAC sciences et technologies de la santé et du social (ST2S)',3), 
-				(6,'BAC ES', 'BAC économique et social (ES)',3), 
-				(7,'BAC S', 'BAC scientifique (S)',3), 
-				(8,'BAC PRO', 'BAC professionnel',3), 
-				(9,'BTS', 'Brevet de technicien supérieur (BTS)',2), 
-				(10,'BUT', 'Bachelors universitaires de technologie (BUT)',2), 
-				(11,'LICENCE', 'Licence', 2);
+INSERT INTO `diplome` (`Id`, `LibelleCourt`, `Libelle`) VALUES
+(1, 'BAC GEN', 'BAC Général'),
+(2, 'BAC STI', 'BAC sciences et technologies industrielles (STI)'),
+(3, 'BAC STMG', 'BAC sciences et technologies du management et de la gestion (STMG)'),
+(4, 'BAC STL', 'BAC sciences et technologies de laboratoire (STL)'),
+(5, 'BAC ST2S', 'BAC sciences et technologies de la santé et du social (ST2S)'),
+(6, 'BAC ES', 'BAC économique et social (ES)'),
+(7, 'BAC S', 'BAC scientifique (S)'),
+(8, 'BAC PRO', 'BAC professionnel'),
+(9, 'BTS', 'Brevet de technicien supérieur (BTS)'),
+(10, 'BUT', 'Bachelors universitaires de technologie (BUT)'),
+(11, 'LICENCE', 'Licence');
 
 -- --------------------------------------------------------
 
@@ -106,7 +105,7 @@ CREATE TABLE `eleve` (
 
 INSERT INTO `eleve` (`Id`, `Nom`, `Prenom`, `DateNaissance`, `Genre`, `Classe`, `Groupe`, `Diplome`, `Telephone`, `Adresse`, `Adresse2`, `CodePostal`, `Ville`, `DateCreation`, `DateModification`, `Email`, `ClasseId`) VALUES
 (1, 'CAPOLUNGO', 'Christophe', '1972-01-19', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-02-29 00:08:20', '2024-02-29 00:08:20', 'frm.cca@outlook.com', NULL),
-(3, 'NOM', 'PRENOM', '1972-01-19', 3, 'BTS SIO', 'B', 'BAC PRO', '0102030405', 'add1', NULL, 75015, 'PARIS', '2024-02-29 00:08:20', '2024-03-25 22:43:08', 'monemail@email.fr', 3),
+(3, 'NOM', 'PRENOM', '1972-01-19', 3, 'BTS SIO', 'B', 'BAC PRO', '0102030405', 'add1', NULL, 75015, 'PARIS', '2024-02-29 00:08:20', '2024-03-25 23:06:25', 'monemail@email.fr', 3),
 (4, 'NOM1', 'PRENOM', '1972-01-19', 1, 'BTS SIO', 'A', 'BAC GEN', '0102030405', 'add1', NULL, 75015, 'PARIS', '2024-02-29 00:08:20', '2024-02-29 00:08:20', 'monemail1@email.fr', 1),
 (5, 'NOM2', 'PRENOM', '1972-01-19', 2, 'BTS SIO', 'A', 'BAC GEN', '0102030405', 'add1', NULL, 75015, 'PARIS', '2024-02-29 00:08:20', '2024-02-29 00:08:20', 'monemail2@email.fr', 1),
 (6, 'NOM3', 'PRENOM', '1972-01-19', 2, 'BTS SIO', 'A', 'BAC STMG', '0102030405', 'add1', NULL, 75015, 'PARIS', '2024-02-29 00:08:20', '2024-02-29 00:08:20', 'monemail3@email.fr', 1),
@@ -132,8 +131,9 @@ CREATE TABLE `elevesimple` (
 --
 
 INSERT INTO `elevesimple` (`Id`, `Nom`, `Prenom`, `DateNaissance`, `Email`) VALUES
-(1, 'CAPOLUNGO', 'Christophe', '1972-01-19', 'frm.cca@outlook.com'),
-(2, 'CAPOLUNGO', 'Christophe2', '1972-01-19', 'frm.cca2@outlook.com');
+(1, 'CAPOLUNGO', 'Chris', '1972-01-19', 'frm.bts1b@outlook.com'),
+(2, 'CAPOLUNGO', 'Christophe', '1972-01-19', 'frm.bts1b@outlook.com'),
+(5, 'titi', 'titi', NULL, 'titi@titi.fr');
 
 -- --------------------------------------------------------
 
@@ -152,8 +152,9 @@ CREATE TABLE `posseder` (
 --
 
 INSERT INTO `posseder` (`DiplomeId`, `EleveId`, `DateObtention`) VALUES
-(3, 3, NULL),
-(9, 3, NULL);
+(1, 3, NULL),
+(4, 3, NULL),
+(7, 3, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -221,7 +222,7 @@ ALTER TABLE `eleve`
 -- AUTO_INCREMENT pour la table `elevesimple`
 --
 ALTER TABLE `elevesimple`
-  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
