@@ -1,0 +1,215 @@
+body {
+  background-color: lightblue;
+  margin: 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* header */
+/* Menu */
+header {
+  overflow: hidden;
+  background-color: #666666;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+nav ul {
+  margin: 0;
+  padding: 5px 10px;
+  list-style: none;
+}
+
+nav li:last-child {
+  float: right;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  padding-top: 10px;
+  padding-right: 10px;
+  list-style: none;
+  color: #15cfa7;
+  font-size: 18px;
+  font-weight: bold;
+}
+nav li:last-child::first-letter {
+  color: #19fdcc;
+  font-size: 22px;
+  font-weight: bold;
+}
+nav li:first-child {
+  color: #dddddd;
+  font-style: italic;
+}
+
+nav a{
+  float: left;
+  display: block;
+  color: #eeeeee;
+  text-align: center;
+  padding: 15px 10px;
+  text-decoration: none;
+  font-size: 18px;
+}
+nav a:hover {
+  color: #94c8e9;
+}
+
+/* Main */
+main {
+  padding-left: 15px;
+}
+/* footer */
+footer {
+  overflow: hidden;
+  float: left;
+  background-color: #666666;
+  color: #eeeeee;
+  text-align: center;
+  /* padding: 10px; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Error Balise */
+error {
+  display: block;
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Btn */
+.btn {
+  border: 1px solid;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 8px;
+  transition: all .5s ease-in-out;
+}
+
+/* On mouse-over */
+.btn:hover {
+  background: #eee;
+}
+
+.success {
+  color: green;
+}
+.info {
+  color: dodgerblue;
+}
+.warning {
+  color: orange;
+}
+.danger {
+  color: red;
+}
+.default {
+  color: black;
+}
+
+h2 {
+  color: darkred;
+  /* text-align: center; */
+}
+label {
+  display: inline-block;
+  width: 130px;
+}
+fieldset {
+  border-radius: 7px;
+  width: 500px;
+}
+input {
+  margin-top: 3px;
+}
+input[type="text"],
+input[type="email"] {
+  border-radius: 5px;
+  width: 350px;
+}
+input[type="number"],
+input[type="tel"] {
+  border-radius: 5px;
+}
+
+fieldset:first-child > legend {
+  font-size: x-large;
+  color: darkolivegreen;
+}
+
+fieldset > legend {
+  font-size: larger;
+  color: darkgoldenrod;
+}
+
+.required {
+  color: tomato;
+}
+
+.error {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* HTML TABLE */
+table {
+  width: 90%;
+  border-collapse: collapse;
+  /* -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px; */
+  overflow: hidden;
+}
+th,
+td {
+  border: 1px solid darkgoldenrod;
+  padding: 6px;
+}
+/* Center Col Upd. & Del. */
+table tr td:nth-child(1),
+table tr td:nth-child(2){
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Contient */
+/* img[src~="icons/"]{ */ 
+/* Commence par */
+img[src^="icons/"]{
+  width: 20px;
+  height: 20px;
+  transition: all .5s ease-in-out;
+}
+
+img.delete:hover{
+  transform: scale(1.5, 1.5);
+  content: url("../icons/crossBlue.png");
+}
+
+img.update:hover{
+  transform: scale(1.5, 1.5);
+  content: url("../icons/editBlue.png");
+}
+
+img.user:hover{
+  transform: scale(1.5, 1.5);
+  content: url("../icons/userBlue.png");
+}
+
+/* userList.php */
+#addUserLink, #listUserLink{
+  text-decoration: none;
+  color: black;
+  /* background-color: lightcoral; */
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+}

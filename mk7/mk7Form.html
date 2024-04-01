@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<h2>Student:</h2>
+	<!-- <?=htmlspecialchars($_SERVER['PHP_SELF'])?> -->
+	<form action="index.php" method="post" enctype="application/x-www-form-urlencoded">
+		<fieldset>
+			<legend>Registration form</legend>
+			<fieldset>
+				<legend>Personal informations</legend>
+				<!-- <label for="id">ID:</label> -->
+				<input type="hidden" name="id" value="" readonly><br>
+				<label for="fname">First name:</label>
+				<input type="text" id="fname" name="fname" value="" placeholder="Type your first name" required minlength="2"
+					maxlength="100" size="50"><br>
+				<label for="lname">Last name:</label>
+				<input type="text" id="lname" name="lname" value="" placeholder="Type your last name" required minlength="2"
+					maxlength="50" size="50"><br>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" value="" placeholder="Type your email" required minlength="3"
+					maxlength="255" size="50"><br>
+				<label for="gender">Gender:</label>
+				<input type="radio" name="gender" value="0" required>Female
+				<input type="radio" name="gender" value="1" required>Male
+				<input type="radio" name="gender" value="2" required>Other<br>
+				<label for="birthdate">Birthdate:</label>
+				<input type="date" id="birthdate" name="birthdate" value="" required><br>
+			</fieldset>
+			<fieldset>
+				<legend>Address informations</legend>
+				<label for="phone">Phone number:</label>
+				<input type="tel" id="phone" name="phone" placeholder="01.02.03.04.05"
+					pattern="[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}"><br>
+				<label for="address1">Address 1:</label>
+				<input type="text" id="address1" name="address1" value="" placeholder="Type your address 1"><br>
+				<label for="address2">Address 2:</label>
+				<input type="text" id="address2" name="address2" value="" placeholder="Type your address 2"><br>
+				<label for="zipcode">ZIP Code:</label>
+				<input type="number" id="zipcode" name="zipcode" value="" min="0" max="99999" placeholder="75012" size="5"><br>
+				<label for="city">City:</label>
+				<input type="text" id="city" name="city" value="" placeholder="Type your City name"><br>
+			</fieldset>
+			<fieldset>
+				<legend>Class informations</legend>
+				<label for="class">Class:</label>
+				<select id="class" name="class">
+					<option value="null">(Unknow)</option>
+					<option value="BTS1">BTS1</option>
+					<option value="BTS2">BTS2</option>
+				</select><br>
+				<label for="group">Group:</label>
+				<input type="radio" name="group" id="group" value="A">A
+				<input type="radio" name="group" id="group" value="B">B<br>
+				<label for="degree ">Degree:</label>
+				<select id="degree " name="degree ">
+					<option value="null">(Unknow)</option>
+					<option value="BACGEN">BAC GEN</option>
+					<option value="BACTECH">BAC TECH</option>
+					<option value="BACPRO">BAC PRO</option>
+					<option value="BTS">BTS</option>
+					<option value="BUT">BUT</option>
+					<option value="LICENSE">LICENSE</option>
+				</select><br>
+			</fieldset>
+
+			<label for="creationDate">Creation Date:</label>
+			<label for="creationDate"></label><br>
+			<label for="modificationDate">Modification Date:</label>
+			<label for="modificationDate"></label><br>
+
+			<br><input type="submit" value="Send">
+		</fieldset>
+	</form>
+</body>
+</html>

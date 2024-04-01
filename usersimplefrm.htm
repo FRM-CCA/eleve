@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Simple Form</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+<h2>Student: MAQUETTE HTML</h2> 
+<!-- https://www.w3schools.com/php/php_form_validation.asp -->
+<form action="usersimplefrmrec.php?method=zombie&toto=zero&titi=canari" method="post">
+<fieldset>
+		<legend>Registration form</legend>
+		<fieldset>
+			<legend>Personal informations</legend>
+			<!-- <label for="id">ID:</label> -->
+			<input type="hidden" name="id" value="" readonly>
+			<input type="hidden" name="method" value="" readonly>
+			<label for="fname">First name:</label>
+			<input type="text" id="fname" name="fname" value="" placeholder="Type your first name" required minlength="2"
+				maxlength="100" size="50"><br>
+			<label for="lname">Last name:</label>
+			<input type="text" id="lname" name="lname" value="" placeholder="Type your last name" required minlength="2"
+				maxlength="50" size="50"><br>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" value="" placeholder="Type your email" required minlength="3"
+				maxlength="255" size="50"><br>
+			<label for="birthdate">Birthdate:</label>
+			<input type="date" id="birthdate" name="birthdate" value=""><br>
+		</fieldset>
+	
+		<input class="btn default" type="submit" name="submit" value="Create">
+	</fieldset>
+</form>
+
+</body>
+</html>
