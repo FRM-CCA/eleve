@@ -30,7 +30,7 @@ USE `db_eleves`;
 --
 
 CREATE TABLE `classe` (
-  `Id` int(11) NOT NULL unsigned,
+  `Id` int(11) unsigned NOT NULL ,
   `Libelle` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -51,10 +51,10 @@ INSERT INTO `classe` (`Id`, `Libelle`) VALUES
 --
 
 CREATE TABLE `diplome` (
-  `Id` int(11) NOT NULL unsigned,
+  `Id` int(11) unsigned NOT NULL ,
   `LibelleCourt` varchar(10) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `Libelle` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `Niveau` int(11) NOT NULL
+  `Niveau` int(11) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
@@ -81,7 +81,7 @@ INSERT INTO `diplome` (`Id`, `LibelleCourt`, `Libelle`, `Niveau`) VALUES
 --
 
 CREATE TABLE `eleve` (
-  `Id` int(11) NOT NULL unsigned,
+  `Id` int(11) unsigned NOT NULL ,
   `Nom` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `Prenom` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `DateNaissance` date NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE `eleve` (
   `DateCreation` datetime NOT NULL DEFAULT current_timestamp(),
   `DateModification` datetime NOT NULL DEFAULT current_timestamp(),
   `Email` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `ClasseId` int(11) DEFAULT NULL
+  `ClasseId` int(11) unsigned DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
@@ -120,7 +120,7 @@ INSERT INTO `eleve` (`Id`, `Nom`, `Prenom`, `DateNaissance`, `Genre`, `Classe`, 
 --
 
 CREATE TABLE `elevesimple` (
-  `Id` int(10) UNSIGNED NOT NULL unsigned,
+  `Id` int(11) unsigned NOT NULL,
   `Nom` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `Prenom` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `DateNaissance` date DEFAULT NULL,
@@ -144,8 +144,8 @@ INSERT INTO `elevesimple` (`Id`, `Nom`, `Prenom`, `DateNaissance`, `Email`) VALU
 --
 
 CREATE TABLE `posseder` (
-  `DiplomeId` int(11) NOT NULL unsigned,
-  `EleveId` int(11) NOT NULL,
+  `DiplomeId` int(11) unsigned NOT NULL,
+  `EleveId` int(11) unsigned NOT NULL,
   `DateObtention` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -221,25 +221,25 @@ ALTER TABLE `posseder`
 -- AUTO_INCREMENT pour la table `classe`
 --
 ALTER TABLE `classe`
-  MODIFY `Id` int(11) NOT NULL unsigned AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) unsigned NOT NULL  AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `diplome`
 --
 ALTER TABLE `diplome`
-  MODIFY `Id` int(11) NOT NULL unsigned AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(11) unsigned NOT NULL  AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `eleve`
 --
 ALTER TABLE `eleve`
-  MODIFY `Id` int(11) NOT NULL unsigned AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Id` int(11) unsigned NOT NULL  AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `elevesimple`
 --
 ALTER TABLE `elevesimple`
-  MODIFY `Id` int(10) unsigned NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) unsigned NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Contraintes pour les tables déchargées
