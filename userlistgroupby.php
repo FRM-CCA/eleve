@@ -29,7 +29,7 @@ if (DbConnect()) {
 try {
     // Fetch data from the database
     $query = "select d.Id, d.LibelleCourt, ifnull(d.Libelle,'Sans Diplome') as libelle, d.Niveau, count(p.EleveId) as nbDiplomer
-		FROM Diplome as d
+		FROM diplome as d
 			left join posseder as p on d.id = p.DiplomeId
 			group by d.Id
 			order by nbDiplomer desc";
