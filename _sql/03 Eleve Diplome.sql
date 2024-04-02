@@ -51,8 +51,8 @@ CREATE TABLE posseder (
 			left join Diplome as d on p.DiplomeId = d.Id
 
 -- idem avec la classe en plus
-select e.id, e.nom, p.EleveId, p.DiplomeId, d.Id, d.LibelleCourt, d.Libelle, d.Niveau,
-	c.Libelle
+select e.id, e.nom, p.EleveId, p.DiplomeId, d.Id, d.LibelleCourt, d.Libelle as libDiplome, d.Niveau,
+	c.Libelle as libClasse
 	FROM eleve as e 
 		left join posseder as p on e.id = p.EleveId
 		left join Diplome as d on p.DiplomeId = d.Id
@@ -61,8 +61,8 @@ select e.id, e.nom, p.EleveId, p.DiplomeId, d.Id, d.LibelleCourt, d.Libelle, d.N
 
 -- idem avec la classe en plus mais pas d'alias sur les tables
 -- idem avec la classe en plus
-select eleve.id, nom, EleveId, DiplomeId, Diplome.Id, LibelleCourt, Diplome.Libelle as libDip, Niveau,
-	Classe.Libelle as libClass
+select eleve.id, nom, EleveId, DiplomeId, Diplome.Id, LibelleCourt, Diplome.Libelle as libDiplome, Niveau,
+	Classe.Libelle as libClasse
 	FROM eleve
 		left join posseder on eleve.id = posseder.EleveId
 		left join Diplome on posseder.DiplomeId = Diplome.Id
