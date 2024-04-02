@@ -59,9 +59,10 @@ select e.id, e.nom, p.EleveId, p.DiplomeId, d.Id, d.LibelleCourt, d.Libelle, d.N
 		left join Classe as c on e.ClasseId = c.Id
 	order by e.id
 
--- idem avec la classe en plus mais pas d'alias
-select eleve.id, nom, EleveId, DiplomeId, Diplome.Id, LibelleCourt, Diplome.Libelle, Niveau,
-	Classe.Libelle
+-- idem avec la classe en plus mais pas d'alias sur les tables
+-- idem avec la classe en plus
+select eleve.id, nom, EleveId, DiplomeId, Diplome.Id, LibelleCourt, Diplome.Libelle as libDip, Niveau,
+	Classe.Libelle as libClass
 	FROM eleve
 		left join posseder on eleve.id = posseder.EleveId
 		left join Diplome on posseder.DiplomeId = Diplome.Id
