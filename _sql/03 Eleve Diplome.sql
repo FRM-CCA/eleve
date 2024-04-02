@@ -50,11 +50,20 @@ CREATE TABLE posseder (
 			left join posseder as p on e.id = p.EleveId
 			left join Diplome as d on p.DiplomeId = d.Id
 
--- idem avec la classe e, plus
+-- idem avec la classe en plus
 select e.id, e.nom, p.EleveId, p.DiplomeId, d.Id, d.LibelleCourt, d.Libelle, d.Niveau,
 	c.Libelle
 	FROM eleve as e 
 		left join posseder as p on e.id = p.EleveId
 		left join Diplome as d on p.DiplomeId = d.Id
 		left join Classe as c on e.ClasseId = c.Id
+	order by e.id
+
+-- idem avec la classe en plus mais pas d'alias
+select eleve.id, nom, EleveId, DiplomeId, Diplome.Id, LibelleCourt, Diplome.Libelle, Niveau,
+	Classe.Libelle
+	FROM eleve
+		left join posseder on eleve.id = posseder.EleveId
+		left join Diplome on posseder.DiplomeId = Diplome.Id
+		left join Classe on eleve.ClasseId = Classe.Id
 	order by e.id
