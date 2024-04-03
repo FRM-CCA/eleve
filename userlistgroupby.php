@@ -47,10 +47,10 @@ try {
 try {
 	// Fetch data from the database
 	$query2 = "select e.Id, e.nom, p.EleveId, count(p.DiplomeId)  as nbdiplome
-	FROM eleve as e 
-		left join posseder as p on e.id = p.EleveId
-	group by e.Id
-    order by e.Nom, e.Prenom";
+        FROM eleve as e 
+                left join posseder as p on e.id = p.EleveId
+            group by e.Id
+            order by e.Nom, e.Prenom";
 	//order by `Nom` ASC, `Prenom` ASC;";
 	$stmt = $conn->prepare($query2);
 	$stmt->execute();
