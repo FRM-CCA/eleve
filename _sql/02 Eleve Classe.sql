@@ -2,7 +2,7 @@
 use db_eleves;
 
 CREATE TABLE classe (
-	id int primary key auto_increment,
+	id int UNSIGNED primary key auto_increment,
 	libelle varchar(50) not null unique
 );
 

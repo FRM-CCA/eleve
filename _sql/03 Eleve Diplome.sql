@@ -1,6 +1,6 @@
 -- Gestion diplomes
 CREATE TABLE diplome (
-  Id int(11) PRIMARY KEY AUTO_INCREMENT,
+  Id int UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   LibelleCourt varchar(10) NOT NULL,
   Libelle varchar(100) NOT NULL,
 	Niveau int,
