@@ -28,7 +28,7 @@ if (DbConnect()) {
 
 try {
     // Fetch data from the database
-    $query = "select d.Id, d.LibelleCourt, ifnull(d.Libelle,'Sans Diplome') as libelle, d.Niveau, count(p.EleveId) as nbDiplomer
+    $query = "select d.Id, d.LibelleCourt, d.Libelle, d.Niveau, count(p.EleveId) as nbDiplomer
 		FROM diplome as d
 			left join posseder as p on d.id = p.DiplomeId
 			group by d.Id
@@ -55,6 +55,33 @@ try {
 	$stmt = $conn->prepare($query2);
 	$stmt->execute();
 	$data2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+	echo "<error>DB Connection failed: " . $e->getMessage() . "</error>";
+	$conn = DbClose();
+	include_once "_footer.php";
+	exit(1);
+}
+
+try {
+	// Fetch data from the database
+	$query3 = "select e.Id, e.nom, d.id, ifnull( d.LibelleCourt,'(étudiant n\'a pas de diplome)') as LibelleCourt
+        FROM eleve as e 
+        left join posseder as p
+        on e.id = p.EleveId 
+        left join diplome as d
+        on p.DiplomeId=d.Id
+        UNION
+        select e.Id, ifnull(e.nom,'(diplome sans étudiant)') as nom, d.id, d.LibelleCourt
+        FROM eleve as e 
+        right join posseder as p
+        on e.id = p.EleveId  
+        right join diplome as d
+        on p.DiplomeId=d.Id
+        order by nom, LibelleCourt";
+	//order by `Nom` ASC, `Prenom` ASC;";
+	$stmt = $conn->prepare($query3);
+	$stmt->execute();
+	$data3 = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
 	echo "<error>DB Connection failed: " . $e->getMessage() . "</error>";
 	$conn = DbClose();
@@ -151,8 +178,6 @@ function htmlTable($data, $query = null)
 		return $table;
 }
 ?>
-
-
 <body>
 <h2>Group by Degree : for get nb student / Degree</h2>
 <?php
@@ -164,6 +189,19 @@ echo "<br>";
 <?php
 // Output the HTML table
 echo htmlTable($data2, $query2);
+echo "<br>";
+?>
+<h2>FULL JOIN (not exist in mariadb use union) : for get all students and all degress</h2>
+<h3>FULL JOIN : select e.Id, ifnull(e.nom,'(diplome sans étudiant)') as nom, d.id, ifnull( d.LibelleCourt,'(étudiant n\'a pas de diplome)') as LibelleCourt
+        FROM eleve as e 
+        full join posseder as p
+        on e.id = p.EleveId 
+        full join diplome as d
+        on p.DiplomeId=d.Id
+        order by nom, LibelleCourt";</h3>
+<?php
+// Output the HTML table
+echo htmlTable($data3, $query3);
 echo "<br>";
 ?>
 </body>
